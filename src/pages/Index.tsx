@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,7 +5,7 @@ import { Plus, Edit3, Trash2, Download, FileText } from 'lucide-react';
 import CustomerModal from '@/components/CustomerModal';
 import ItemModal from '@/components/ItemModal';
 import PrintableReport from '@/components/PrintableReport';
-import { exportToPDF, exportToWord } from '@/utils/exportUtils';
+import { exportToPDF } from '@/utils/exportUtils';
 import { CustomerInfo, SparePartItem } from '@/types';
 
 const Index = () => {
@@ -81,10 +80,6 @@ const Index = () => {
 
   const handleExportPDF = () => {
     exportToPDF(customerInfo, sparePartItems);
-  };
-
-  const handleExportWord = () => {
-    exportToWord(customerInfo, sparePartItems);
   };
 
   return (
@@ -232,14 +227,6 @@ const Index = () => {
           >
             <Download className="w-5 h-5" />
             Export to PDF
-          </Button>
-          <Button
-            onClick={handleExportWord}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
-            size="lg"
-          >
-            <FileText className="w-5 h-5" />
-            Export to Word
           </Button>
           <Button
             onClick={() => window.print()}
