@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,5 +102,31 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #printable-report {
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+  }
+  
+  table {
+    break-inside: avoid;
+  }
+  
+  .print-break {
+    page-break-before: always;
   }
 }
